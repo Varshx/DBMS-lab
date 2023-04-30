@@ -1,0 +1,104 @@
+1)
+SQL> DECLARE
+  2  fahrenheit NUMBER;
+  3  celcius NUMBER;
+  4  BEGIN
+  5  fahrenheit := &enter_fahrenheit;
+  6  celcius := (fahrenheit - 32) * 5/9;
+  7  dbms_output.put_line('The temperature in celcius is : ' || celcius);
+  8  END;
+  9  /
+Enter value for enter_fahrenheit: 98
+old   5: fahrenheit := &enter_fahrenheit;
+new   5: fahrenheit := 98;
+The temperature in celcius is : 36.66666666666666666666666666666666666667
+
+PL/SQL procedure successfully completed.
+
+
+2)
+SQL> DECLARE
+  2  total_sum NUMBER := 0;
+  3  BEGIN
+  4  FOR i IN 1..10 LOOP
+  5  IF i MOD 2 = 0 THEN
+  6  total_sum := total_sum + i;
+  7  END IF;
+  8  END LOOP;
+  9  dbms_output.put_line('Sum of even integers from 1 to 10 is: ' || total_sum);
+ 10  END;
+ 11  /
+Sum of even integers from 1 to 10 is: 30
+
+PL/SQL procedure successfully completed.
+
+3)
+SQL> DECLARE
+  2    num1 NUMBER := &enter_num1;
+  3    num2 NUMBER := &enter_num2;
+  4    num3 NUMBER := &enter_num3;
+  5    max_num NUMBER;
+  6  BEGIN
+  7    -- Check if num1 is the greatest
+  8    IF num1 >= num2 AND num1 >= num3 THEN
+  9      max_num := num1;
+ 10    -- Check if num2 is the greatest
+ 11    ELSIF num2 >= num1 AND num2 >= num3 THEN
+ 12      max_num := num2;
+ 13    -- Check if num3 is the greatest
+ 14    ELSE
+ 15      max_num := num3;
+ 16    END IF;
+ 17
+ 18    -- Display the greatest number
+ 19    dbms_output.put_line('The greatest number is ' || max_num);
+ 20  END;
+ 21  /
+Enter value for enter_num1: 4
+old   2:   num1 NUMBER := &enter_num1;
+new   2:   num1 NUMBER := 4;
+Enter value for enter_num2: 9
+old   3:   num2 NUMBER := &enter_num2;
+new   3:   num2 NUMBER := 9;
+Enter value for enter_num3: 5
+old   4:   num3 NUMBER := &enter_num3;
+new   4:   num3 NUMBER := 5;
+The greatest number is 9
+
+PL/SQL procedure successfully completed.
+
+4)
+SQL> DECLARE
+  2  num NUMBER := &enter_num;
+  3  BEGIN
+  4  IF MOD(num, 2) = 0 THEN
+  5  dbms_output.put_line(num || ' is a even number');
+  6  ELSE
+  7  dbms_output.put_line(num || ' is a odd number');
+  8  END IF;
+  9  END;
+ 10  /
+Enter value for enter_num: 5
+old   2: num NUMBER := &enter_num;
+new   2: num NUMBER := 5;
+5 is a odd number
+
+PL/SQL procedure successfully completed.
+
+5)
+SQL> DECLARE
+  2  num NUMBER := &enter_num;
+  3  fact NUMBER := 1;
+  4  BEGIN
+  5  FOR i in 1..num LOOP
+  6  fact := fact*i;
+  7  END LOOP;
+  8  dbms_output.put_line('The factorial of ' || num || ' is ' || fact);
+  9  END;
+ 10  /
+Enter value for enter_num: 5
+old   2: num NUMBER := &enter_num;
+new   2: num NUMBER := 5;
+The factorial of 5 is 120
+
+PL/SQL procedure successfully completed.
